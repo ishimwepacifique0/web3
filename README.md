@@ -2,12 +2,6 @@
 
 This repo contains Solidity smart contracts and a Hardhat setup to compile, test, deploy, and interact with them. The main example contract here is `RandaCore`, alongside a sample `Lock` contract and an Ignition module.
 
-![RandaCore Screenshot](./Screenshot%202025-08-12%20at%2003.02.38.png)
-
-![RandaCore Screenshot 2](./Screenshot%202025-08-12%20at%2003.13.16.png)
-
-![RandaCore Screenshot 3](./Screenshot%202025-08-12%20at%2003.16.28.png)
-
 ### Prerequisites
 
 - Node.js and npm installed
@@ -24,8 +18,8 @@ npm install
 Create a `.env` file in the project root with:
 
 ```bash
-PRIVATE_KEY=0xYOUR_PRIVATE_KEY # used for deployments to configured networks
-RANDA_CONTRACT_ADDRESS=0x...   # optional: set after deployment to use scripts/interact.js
+PRIVATE_KEY=690550467fb91ea44c935848e8139d7b78980d94782e25316da592fe7e5cdf22
+RANDA_CONTRACT_ADDRESS=0xB2075667e23B40006998538626702a6150fBDdBe
 ```
 
 Network `coretestnet` is preconfigured in `hardhat.config.js` and reads `PRIVATE_KEY` from `.env`.
@@ -86,18 +80,10 @@ For local node usage, switch the network:
 npx hardhat run scripts/interact.js --network localhost
 ```
 
-### (Optional) Deploy `Lock` via Hardhat Ignition
+### Screenshots
 
-```bash
-npx hardhat ignition deploy ./ignition/modules/Lock.js --network localhost
-# or
-npx hardhat ignition deploy ./ignition/modules/Lock.js --network coretestnet
-```
+![RandaCore Screenshot](./Screenshot%202025-08-12%20at%2003.02.38.png)
 
-### Useful Hardhat commands
+![RandaCore Screenshot 2](./Screenshot%202025-08-12%20at%2003.13.16.png)
 
-```bash
-npx hardhat help
-npx hardhat clean
-REPORT_GAS=true npx hardhat test
-```
+![RandaCore Screenshot 3](./Screenshot%202025-08-12%20at%2003.16.28.png)
