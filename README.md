@@ -18,7 +18,7 @@ npm install
 Create a `.env` file in the project root with:
 
 ```bash
-PRIVATE_KEY=690550467fb91ea44c935848e8139d7b78980d94782e25316da592fe7e5cdf22
+PRIVATE_KEY=6905*************************************************
 RANDA_CONTRACT_ADDRESS=0xB2075667e23B40006998538626702a6150fBDdBe
 ```
 
