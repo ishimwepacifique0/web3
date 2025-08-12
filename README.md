@@ -1,13 +1,103 @@
-# Sample Hardhat Project
+## RandaCore Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+This repo contains Solidity smart contracts and a Hardhat setup to compile, test, deploy, and interact with them. The main example contract here is `RandaCore`, alongside a sample `Lock` contract and an Ignition module.
 
-Try running some of the following tasks:
+![RandaCore Screenshot](./Screenshot%202025-08-12%20at%2003.02.38.png)
 
-```shell
-npx hardhat help
+![RandaCore Screenshot 2](./Screenshot%202025-08-12%20at%2003.13.16.png)
+
+![RandaCore Screenshot 3](./Screenshot%202025-08-12%20at%2003.16.28.png)
+
+### Prerequisites
+
+- Node.js and npm installed
+- An EVM account private key with test funds if deploying to a public test network
+
+### Install
+
+```bash
+npm install
+```
+
+### Environment variables
+
+Create a `.env` file in the project root with:
+
+```bash
+PRIVATE_KEY=0xYOUR_PRIVATE_KEY # used for deployments to configured networks
+RANDA_CONTRACT_ADDRESS=0x...   # optional: set after deployment to use scripts/interact.js
+```
+
+Network `coretestnet` is preconfigured in `hardhat.config.js` and reads `PRIVATE_KEY` from `.env`.
+
+### Compile
+
+```bash
+npx hardhat compile
+```
+
+### Test (runs sample tests for `Lock`)
+
+```bash
 npx hardhat test
-REPORT_GAS=true npx hardhat test
+```
+
+### Run a local node (optional)
+
+```bash
 npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
+```
+
+### Deploy `RandaCore`
+
+- Localhost (ensure the local node is running):
+
+```bash
+npx hardhat run scripts/deploy.js --network localhost
+```
+
+ output:
+
+```text
+[dotenv@17.2.1] injecting env (2) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Contract deployed to: 0x0DE3e02b2bC0f9d2121B6a8063Fef4480eE03f38
+```
+
+- Core Testnet (requires `PRIVATE_KEY` with test funds):
+
+```bash
+npx hardhat run scripts/deploy.js --network coretestnet
+```
+
+After deployment, copy the printed contract address and set `RANDA_CONTRACT_ADDRESS` in `.env`.
+
+### Interact with `RandaCore`
+
+Ensure `RANDA_CONTRACT_ADDRESS` is set in `.env` to the deployed address, then:
+
+```bash
+npx hardhat run scripts/interact.js --network coretestnet
+```
+
+For local node usage, switch the network:
+
+```bash
+npx hardhat run scripts/interact.js --network localhost
+```
+
+### (Optional) Deploy `Lock` via Hardhat Ignition
+
+```bash
+npx hardhat ignition deploy ./ignition/modules/Lock.js --network localhost
+# or
+npx hardhat ignition deploy ./ignition/modules/Lock.js --network coretestnet
+```
+
+### Useful Hardhat commands
+
+```bash
+npx hardhat help
+npx hardhat clean
+REPORT_GAS=true npx hardhat test
 ```
