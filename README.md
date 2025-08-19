@@ -80,10 +80,3 @@ For local node usage, switch the network:
 npx hardhat run scripts/interact.js --network localhost
 ```
 
-### Screenshots
-
-![RandaCore Screenshot](./Screenshot%202025-08-12%20at%2003.02.38.png)
-
-![RandaCore Screenshot 2](./Screenshot%202025-08-12%20at%2003.13.16.png)
-
-![RandaCore Screenshot 3](./Screenshot%202025-08-12%20at%2003.16.28.png)
