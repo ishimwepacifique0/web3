@@ -1,7 +1,7 @@
 async function main() {
-  const RandaCore = await ethers.getContractFactory("RandaCore");
-  const randa = await RandaCore.deploy();
-  console.log("Contract deployed to:", randa.target);
+  const IshiCoin = await ethers.getContractFactory("IshiCoin");
+  const ishi = await IshiCoin.deploy();
+  console.log("Contract deployed to:", ishi.target);
 }
 main().catch((error) => {
   console.error(error);
